@@ -1,34 +1,63 @@
-### Basic Yelp client
+The following **required** functionality is completed:
 
-This is a headless example of how to implement an OAuth 1.0a Yelp API client. The Yelp API provides an application token that allows applications to make unauthenticated requests to their search API.
+- [x] Search results page
+   - [x] Table rows should be dynamic height according to the content height.
+   - [x] Custom cells should have the proper Auto Layout constraints.
+   - [x] Search bar should be in the navigation bar (doesn't have to expand to show location like the real Yelp app does).
+- [ ] Filter page. Unfortunately, not all the filters are supported in the Yelp API.
+   - [x] The filters you should actually have are: category, sort (best match, distance, highest rated), distance, deals (on/off).
+   - [x] The filters table should be organized into sections as in the mock.
+   - [x] You can use the default UISwitch for on/off states.
+   - [x] Clicking on the "Search" button should dismiss the filters page and trigger the search w/ the new filter settings.
+   - [x] Display some of the available Yelp categories (choose any 3-4 that you want).
 
-### Next steps
+The following **optional** features are implemented:
 
-- Check out `BusinessesViewController.swift` to see how to use the `Business` model.
+- [x] Search results page
+   - [x] Infinite scroll for restaurant results.
+   - [x] Implement map view of restaurant results.
+- [ ] Filter page
+   - [ ] Implement a custom switch instead of the default UISwitch.
+   - [x] Distance filter should expand as in the real Yelp app
+   - [ ] Categories should show a subset of the full list with a "See All" row to expand. Category list is [here](http://www.yelp.com/developers/documentation/category_list).
+- [x] Implement the restaurant detail page.
 
-### Sample request
+The following **additional** features are implemented:
 
-**Basic search with query**
+- [ ] List anything else that you can get done to improve the app functionality!
 
-```
-Business.searchWithTerm("Thai", completion: { (businesses: [Business]!, error: NSError!) -> Void in
-    self.businesses = businesses
-    
-    for business in businesses {
-        print(business.name!)
-        print(business.address!)
-    }
-})
-```
+Please list two areas of the assignment you'd like to **discuss further with your peers** during the next class (examples include better ways to implement something, how to extend your app in certain ways, etc):
 
-**Advanced search with categories, sort, and deal filters**
+1. Expanding and collapsing table cells after few rows (eg. "See All" in Categories)
+2. Better ways of implementing the app
 
-```
-Business.searchWithTerm("Restaurants", sort: .Distance, categories: ["asianfusion", "burgers"], deals: true) { (businesses: [Business]!, error: NSError!) -> Void in
+## Video Walkthrough
 
-    for business in businesses {
-        print(business.name!)
-        print(business.address!)
-    }
-}
-```
+Here's a walkthrough of implemented user stories:
+
+http://i.imgur.com/P3jUCj6.gif
+
+GIF created with [LiceCap](http://www.cockos.com/licecap/).
+
+## Notes
+
+Describe any challenges encountered while building the app.
+
+1. Implementing Yelp business api
+2. Custom switch instead of UISwitch
+
+## License
+
+    Copyright [yyyy] [name of copyright owner]
+
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
